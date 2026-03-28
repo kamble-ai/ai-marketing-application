@@ -232,7 +232,10 @@ def history(username: str = Depends(verify_token)):
     except Exception as e:
         print("❌ HISTORY ERROR:", e)
         return {"error": "History failed"}
-
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 # =========================
 # FRONTEND
 # =========================
